@@ -14,12 +14,15 @@ class App extends Component {
           onPress={() => {
             this.props.addSaga();
           }}
+          color="#00802b"
+          width={100}
         />
         <Button
           title="-"
           onPress={() => {
             this.props.removeSaga();
           }}
+          color="#ff3333"
         />
       </View>
     );
