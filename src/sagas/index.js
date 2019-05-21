@@ -1,6 +1,10 @@
 import { takeLatest } from "redux-saga/effects";
-import { types } from "../reducers/index";
-import * as sagas from "./counterSaga";
+
+import { types as counterTypes } from "../reducers/counterReducer";
+import { types as playerTypes } from "../reducers/playerReducer";
+
+import * as counterSagas from "./counterSaga";
+import * as playerSagas from "./playerSaga";
 
 //function to automate generation of saga
 function generateSaga(type, saga, effect, name) {
@@ -12,14 +16,15 @@ function generateSaga(type, saga, effect, name) {
 
 //get any sagas
 const anySagas = [];
-//get any sagas 2
-const anySagas2 = [];
+const PlayerSagas = [
+  generateSaga(playerTypes, playerSagas, takeLatest, "SET_PLAYER_SAGA")
+];
 
 const CounterSagas = [
-  generateSaga(types, sagas, takeLatest, "ADD_SAGA"),
-  generateSaga(types, sagas, takeLatest, "REMOVE_SAGA")
+  generateSaga(counterTypes, counterSagas, takeLatest, "ADD_SAGA"),
+  generateSaga(counterTypes, counterSagas, takeLatest, "REMOVE_SAGA")
 ];
 
 //merge them all
 
-export const allSagas = [...anySagas, ...anySagas2, ...CounterSagas];
+export const allSagas = [...anySagas, ...PlayerSagas, ...CounterSagas];
