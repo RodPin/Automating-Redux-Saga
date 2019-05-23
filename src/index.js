@@ -27,6 +27,7 @@ class App extends Component {
           />
         </View>
         <View style={styles.container}>
+          <Text>Shirt: {this.props.selectedShirt} </Text>
           <Text>Player: {this.props.selectedPlayer} </Text>
           <Button
             title="Lionel Messi"
@@ -57,10 +58,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   }
 });
-const mapStateToProps = ({ counter, player }) => {
+const mapStateToProps = ({ counter, player, shirt }) => {
   return {
     counter: counter.counter,
-    selectedPlayer: player.selectedPlayer
+    selectedPlayer: player.selectedPlayer,
+    selectedShirt: shirt.selectedShirt
   };
 };
 
