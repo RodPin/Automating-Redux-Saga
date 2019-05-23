@@ -9,6 +9,7 @@ export function getAction(name) {
   const func = name.toLowerCase().replace(/([_][a-z])/gi, $1 => {
     return $1.toUpperCase().replace("_", "");
   });
+
   const actionObj = {};
   actionObj[func] = action => ({ type: name, payload: action });
   return actionObj;
