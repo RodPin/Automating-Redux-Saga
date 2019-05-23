@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <View style={{ flex: 1 }}>
         <View style={styles.container}>
-          <Text>Counter: {this.props.counter}</Text>
+          <Text>Clicks Counter: {this.props.counter}</Text>
           <Button
             title="+"
             onPress={() => {
