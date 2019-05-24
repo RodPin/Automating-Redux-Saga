@@ -1,10 +1,22 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, Image } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getAction } from "./reducers/index";
 import _merge from "lodash/merge";
+
+const IMG_MESSI = require("./images/messias.jpg");
+const IMG_PAI = require("./images/daddy.jpg");
+const SIZE_IMG = { width: 250, height: 250 };
 class App extends Component {
+  renderImage() {
+    if (this.props.selectedPlayer == "Ronaldo") {
+      return <Image source={IMG_PAI} style={SIZE_IMG} />;
+    } else if (this.props.selectedPlayer == "Messi") {
+      return <Image source={IMG_MESSI} style={SIZE_IMG} />;
+    }
+  }
+
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -29,6 +41,7 @@ class App extends Component {
         <View style={styles.container}>
           <Text>Shirt: {this.props.selectedShirt} </Text>
           <Text>Player: {this.props.selectedPlayer} </Text>
+
           <Button
             title="Lionel Messi"
             onPress={() => {
@@ -44,6 +57,7 @@ class App extends Component {
             }}
             color="#ff3333"
           />
+          {this.renderImage()}
         </View>
       </View>
     );
@@ -53,7 +67,7 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 0.5,
-    justifyContent: "center",
+    marginTop: 10,
     alignItems: "center",
     backgroundColor: "#F5FCFF"
   }
