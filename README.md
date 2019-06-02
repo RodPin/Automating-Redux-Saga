@@ -4,7 +4,7 @@
 redux-saga is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
 # why using it?
-Basically it will save you a lot of time.You can create actions and types with automated functions.
+Basically it will save you a lot of time.You can create actions and types with automated functions.And use camelCase from VsCode to Switch between types to functions easier
 
 
 
